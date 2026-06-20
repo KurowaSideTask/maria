@@ -64,6 +64,15 @@ body{
     padding:40px 20px;
 }
 
+/* Halaman yang punya navbar + konten (biodata, template, dst)
+   tidak boleh ikut flex-center seperti index.html, karena body
+   di sini punya 2 anak langsung (navbar + bio-container) yang
+   harus ditumpuk vertikal, bukan disejajarkan jadi satu baris. */
+body.page-content{
+    display:block;
+    padding:0;
+}
+
 /* Container */
 .container{
     width:100%;
@@ -451,11 +460,26 @@ body{
     margin-bottom:40px;
 }
 
-.gallery img{
+.gallery-photo{
+    position:relative;
+    display:inline-block;
     width:100%;
     max-width:620px;
+}
+
+.gallery img{
+    display:block;
+    width:100%;
     border-radius:var(--radius-m);
     box-shadow:var(--shadow-m);
+}
+
+.gallery-badge{
+    position:absolute;
+    top:16px;
+    left:16px;
+    margin:0;
+    background:rgba(255,255,255,.92);
 }
 
 .gallery h3{
@@ -471,6 +495,7 @@ body{
     margin:auto;
     line-height:1.9;
     color:var(--color-ink-soft);
+    text-align:center;
 }
 
 .story h4{
