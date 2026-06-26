@@ -7,10 +7,9 @@
 
 /* ============================
    DESIGN TOKENS
-   (dipakai oleh navbar & halaman biodata)
 ============================ */
 :root{
-    --color-bg:#b9e5ef;
+    --color-bg:#8bd7e6;
     --color-navbar-start:#ece7c8;
     --color-navbar-end:#45bfcb;
     --color-primary:#0052d4;
@@ -36,7 +35,7 @@ button:focus-visible{
     outline-offset:3px;
 }
 
-@media (prefers-reduced-motion: reduce){
+@media(prefers-reduced-motion:reduce){
     *{
         animation:none !important;
         transition:none !important;
@@ -44,11 +43,11 @@ button:focus-visible{
     }
 }
 
-html{
-    scroll-behavior:smooth;
-}
+html{ scroll-behavior:smooth; }
 
-/* Body */
+/* ============================
+   BODY
+============================ */
 body{
     min-height:100vh;
     background:var(--color-bg);
@@ -56,31 +55,33 @@ body{
     color:var(--color-ink);
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     padding:40px 20px;
 }
 
-/* Halaman yang punya navbar + konten (biodata, template, dst)
-   tidak boleh ikut flex-center seperti index.html, karena body
-   di sini punya 2 anak langsung (navbar + bio-container) yang
-   harus ditumpuk vertikal, bukan disejajarkan jadi satu baris. */
 body.page-content{
     display:block;
     padding:0;
 }
 
-/* Container */
+body.page-content .container{
+    max-width:900px;
+    margin:0 auto;
+    padding:40px 20px;
+    text-align:center;
+}
+
+/* ============================
+   CONTAINER & INDEX
+============================ */
 .container{
     width:100%;
     max-width:900px;
     text-align:center;
 }
 
-/* Profile Image */
 .profile{
     margin-bottom:20px;
 }
@@ -88,30 +89,25 @@ body.page-content{
 .profile img{
     width:200px;
     height:220px;
-
     object-fit:cover;
-
     border-radius:50%;
     background:#ffc400;
     padding:8px;
 }
 
-/* Title */
 .title{
     display:inline-block;
-    background:#a6d8f7;
     padding:12px 24px;
     margin-bottom:25px;
 }
 
 .title h1{
-    font-size:clamp(32px, 5vw, 60px);
+    font-size:clamp(32px,5vw,60px);
     font-weight:900;
     letter-spacing:2px;
     color:#000;
 }
 
-/* Menu */
 .menu{
     display:flex;
     flex-direction:column;
@@ -119,90 +115,48 @@ body.page-content{
     gap:12px;
 }
 
-/* Buttons */
+/* ============================
+   BUTTONS (index)
+============================ */
 .btn{
     width:100%;
     max-width:420px;
-
     text-decoration:none;
     color:#000;
-
     padding:12px 20px;
-
     border:2px solid #2576ff;
     border-radius:999px;
-
     font-size:14px;
     text-align:center;
-
-    transition:0.2s ease;
-
+    transition:.2s ease;
     box-shadow:0 2px 5px rgba(0,0,0,.1);
 }
 
-.btn:hover{
-    transform:translateY(-2px);
-}
+.btn:hover{ transform:translateY(-2px); }
 
-/* button warna */
-.btn1{
-    background:#d8f0ff;
-}
-
-.btn2{
-    background:#ffc0d7;
-}
-
-.btn3{
-    background:#b8ffd0;
-}
-
-.btn4{
-    background:#ddb8ff;
-}
-
-.btn5{
-    background:#b7d7ff;
-}
-
-.btn6{
-    background:#9bd8ff;
-}
-
-.btn7{
-    background:#ff9eb3;
-}
-
-.btn8{
-    background:#ff6a00;
-    font-weight:bold;
-}
-
-.btn9{
-    background:#42d37a;
-}
+.btn1{ background:#d8f0ff; }
+.btn2{ background:#ffc0d7; }
+.btn3{ background:#b8ffd0; }
+.btn4{ background:#ddb8ff; }
+.btn5{ background:#b7d7ff; }
+.btn6{ background:#9bd8ff; }
+.btn7{ background:#ff9eb3; }
+.btn8{ background:#ff6a00; font-weight:bold; }
+.btn9{ background:#42d37a; }
 
 /* ============================
-   NAVBAR (header halaman, sticky)
+   NAVBAR
 ============================ */
 .navbar{
     position:sticky;
     top:0;
     z-index:1000;
-
     height:90px;
-    background:linear-gradient(
-        90deg,
-        var(--color-navbar-start),
-        var(--color-navbar-end)
-    );
-
+    background:linear-gradient(90deg, var(--color-navbar-start), var(--color-navbar-end));
     display:flex;
     justify-content:space-between;
     align-items:center;
-
     padding:0 40px;
-
     box-shadow:var(--shadow-s);
     backdrop-filter:saturate(160%) blur(6px);
 }
@@ -219,13 +173,10 @@ body.page-content{
     display:flex;
     align-items:center;
     justify-content:center;
-
     width:54px;
     height:54px;
-
     border-radius:50%;
     background:rgba(255,255,255,.55);
-
     transition:.2s ease;
 }
 
@@ -240,67 +191,24 @@ body.page-content{
     height:32px;
 }
 
-/* ======================
-   GLOBAL NAVBAR
-====================== */
-
-.navbar-global{
-
-    position:fixed;
-
-    top:20px;
-    left:50%;
-
-    transform:translateX(-50%);
-
+.nav-links{
     display:flex;
     gap:12px;
-
-    z-index:9999;
-
-    background:rgba(255,255,255,0.95);
-
-    padding:10px 15px;
-
-    border-radius:999px;
-
-    box-shadow:0 4px 15px rgba(0,0,0,.15);
-
 }
 
 .nav-btn{
-
     text-decoration:none;
-
-    color:black;
-
-    background:#d8f0ff;
-
-    border:2px solid #2576ff;
-
+    color:#222;
+    background:rgba(255,255,255,.8);
+    border:none;
     border-radius:999px;
-
-    padding:10px 18px;
-
-    font-size:14px;
-
+    padding:10px 16px;
     cursor:pointer;
-
-    transition:.2s;
-}
-
-.nav-btn:hover{
-    transform:translateY(-2px);
-}
-
-.home-btn{
-    background:#b8ffd0;
 }
 
 /* ============================
    BIODATA
 ============================ */
-
 .bio-container{
     max-width:900px;
     margin:auto;
@@ -319,6 +227,15 @@ body.page-content{
     padding:6px 16px;
     border-radius:999px;
     margin-bottom:14px;
+    text-align:center;
+    justify-content:center;
+    align-items:center;
+}
+
+.story .eyebrow{
+    display: block;
+    width: fit-content;
+    margin: 0 auto 14px auto;
 }
 
 .bio-title{
@@ -435,22 +352,17 @@ body.page-content{
 
 .card-body li::before{
     content:counter(item);
-
     position:absolute;
     left:0;
     top:0;
-
     width:22px;
     height:22px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     border-radius:50%;
     background:var(--color-accent-soft);
     color:var(--color-primary);
-
     font-size:.75rem;
     font-weight:700;
 }
@@ -495,7 +407,6 @@ body.page-content{
     margin:auto;
     line-height:1.9;
     color:var(--color-ink-soft);
-    text-align:center;
 }
 
 .story h4{
@@ -525,148 +436,44 @@ hr{
     opacity:.35;
 }
 
-@media(max-width:768px){
-
-    .navbar{
-        padding:0 20px;
-    }
-
-    .logo-text{
-        font-size:1.15rem;
-    }
-
-    .navbar .home-link{
-        width:46px;
-        height:46px;
-    }
-
-    .navbar img{
-        width:26px;
-        height:26px;
-    }
-
-    .info-grid{
-        grid-template-columns:1fr;
-    }
-
-    .bio-title{
-        font-size:2rem;
-    }
-
-    .card-header{
-        font-size:1.25rem;
-    }
-
-}
-
-/* SKU hal */
-
-.slider{
-    position:relative;
-    max-width:700px;
-    margin:30px auto;
-}
-
-.slides{
-    overflow:hidden;
-}
-
-.slide{
-    display:none;
-}
-
-.slide.active{
-    display:block;
-}
-
-.slide img{
-    width:100%;
-    border-radius:15px;
-    display:block;
-
-    box-shadow:0 4px 10px rgba(0,0,0,.15);
-}
-
-.prev,
-.next{
-    position:absolute;
-    top:50%;
-
-    transform:translateY(-50%);
-
-    width:50px;
-    height:50px;
-
-    border:none;
-    border-radius:50%;
-
-    cursor:pointer;
-
-    font-size:22px;
-
-    background:white;
-
-    box-shadow:0 2px 8px rgba(0,0,0,.2);
-}
-
-.prev{
-    left:-25px;
-}
-
-.next{
-    right:-25px;
-}
-
-.prev:hover,
-.next:hover{
-    transform:translateY(-50%) scale(1.1);
-}
-
+/* ============================
+   SKU PAGE
+============================ */
 .subtitle{
+    display:inline-block;
     margin:25px auto 20px;
     padding:12px 24px;
-
     background:#a6d8f7;
-
-    display:inline-block;
-
+    border-radius:12px;
     font-size:22px;
     font-weight:bold;
-
-    border-radius:12px;
 }
 
 .sku-container{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
     gap:20px;
-
-    max-width:600px;
-    margin:0 auto 40px;
+    margin-bottom:40px;
 }
 
 .sku-card{
+    width:65%;
     text-decoration:none;
     color:black;
-
     background:white;
-
     border-radius:15px;
     overflow:hidden;
-
     box-shadow:0 2px 8px rgba(0,0,0,.15);
-
     transition:.25s;
 }
 
-.sku-card:hover{
-    transform:translateY(-5px);
-}
+.sku-card:hover{ transform:translateY(-5px); }
 
 .sku-card img{
     width:100%;
     display:block;
+    padding-top:20px;
 }
 
 .sku-card p{
@@ -677,155 +484,337 @@ hr{
 .skk-container{
     display:grid;
     grid-template-columns:repeat(5,1fr);
-
     gap:15px;
-
     max-width:700px;
     margin:auto;
 }
 
 .skk-card{
     background:white;
-
     border-radius:10px;
-
     overflow:hidden;
-
     box-shadow:0 2px 6px rgba(0,0,0,.15);
-
     transition:.25s;
 }
 
-.skk-card:hover{
-    transform:scale(1.05);
-}
+.skk-card:hover{ transform:scale(1.05); }
 
 .skk-card img{
     width:100%;
     display:block;
 }
 
-.subtitle{
-    margin:25px auto;
-    padding:12px 24px;
-
-    display:inline-block;
-
-    background:#a6d8f7;
-
-    border-radius:12px;
-
-    font-size:22px;
-    font-weight:bold;
-}
-
-.sku-container{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:40px;
-}
-
-.sku-card{
-    width:95%;
-
-    text-decoration:none;
-    color:black;
-
-    background:white;
-
-    border-radius:15px;
-
-    overflow:hidden;
-
-    box-shadow:0 2px 8px rgba(0,0,0,.15);
-
-    transition:.25s;
-}
-
-.sku-card:hover{
-    transform:translateY(-5px);
-}
-
-.sku-card img{
-    width:100%;
-    display:block;
-
-    padding-top:20px;
-}
-
-.sku-card p{
-    padding:15px;
-    font-weight:bold;
-}
-
-.skk-preview{
-    margin-top:20px;
-}
+.skk-preview{ margin-top:20px; }
 
 .skk-preview img{
-    width:300px;
+    width:450px;
     max-width:100%;
-
     border-radius:15px;
-
     box-shadow:0 2px 8px rgba(0,0,0,.15);
-
     transition:.25s;
 }
 
-.skk-preview img:hover{
-    transform:scale(1.03);
+.skk-preview img:hover{ transform:scale(1.03); }
+
+.skk-preview p{ margin-top:10px; }
+
+/* ============================
+   SLIDER
+============================ */
+.slider{
+    position:relative;
+    max-width:700px;
+    margin:30px auto 16px;
 }
 
-.skk-preview p{
-    margin-top:10px;
+.slides{
+    overflow:hidden;
+    border-radius:12px;
 }
 
-/* Mobile */
+.slide{ display:none; }
+.slide.active{ display:block; }
 
-@media(max-width:768px){
-
-    .skk-container{
-        grid-template-columns:repeat(3,1fr);
-    }
-
+.slide img{
+    width:100%;
+    border-radius:12px;
+    display:block;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
 }
 
-@media(max-width:500px){
-
-    .sku-container{
-        grid-template-columns:1fr;
-    }
-
-    .skk-container{
-        grid-template-columns:repeat(2,1fr);
-    }
-
+.prev,
+.next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:22px;
+    background:white;
+    box-shadow:0 2px 8px rgba(0,0,0,.2);
+    z-index:2;
 }
 
-/* Foot */
+.prev{ left:-25px; }
+.next{ right:-25px; }
+
+.prev:hover,
+.next:hover{
+    transform:translateY(-50%) scale(1.1);
+}
+
+.slide-toggle{
+    position:absolute;
+    top:14px;
+    right:14px;
+    z-index:2;
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.85);
+    box-shadow:var(--shadow-s);
+    font-size:13px;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.slide-toggle:hover{ background:#fff; }
+
+.slide-counter{
+    margin-top:14px;
+    font-size:.9rem;
+    color:var(--color-ink-soft);
+}
+
+.slide-progress{
+    max-width:700px;
+    height:4px;
+    margin:10px auto 0;
+    background:rgba(16,27,38,.08);
+    border-radius:999px;
+    overflow:hidden;
+}
+
+.slide-progress-fill{
+    width:0%;
+    height:100%;
+    background:var(--color-primary);
+    border-radius:999px;
+    transition:width .25s ease;
+}
+
+/* ============================
+   SECTION BANNERS
+============================ */
+.section-banner{
+    display:block;
+    width:100%;
+    padding:14px 28px;
+    margin-bottom:22px;
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:1.05rem;
+    letter-spacing:.3px;
+    color:#fff;
+    border-radius:var(--radius-s);
+    box-shadow:var(--shadow-s);
+}
+
+.section-banner--sku    { background:#ff7a1a; }
+.section-banner--dok    { background:#16b889; }
+.section-banner--bidang { background:#ffb020; }
+.section-banner--tkk    { background:#7c4dff; }
+.banner-blue            { background:#4db6e8; }
+.banner-purple          { background:#6a1fc2; }
+.banner-green           { background:#1a6b3c; }
+.banner-olive           { background:#5a6e1f; }
+.banner-brown           { background:#7a4a10; }
+.banner-orange          { background:#e86820; }
+
+/* ============================
+   SLIDER SECTION & KEGIATAN
+============================ */
+.slider-section{
+    text-align:center;
+    margin-bottom:56px;
+}
+
+.kegiatan-section{
+    max-width:500px;
+    margin:0 auto 50px;
+    text-align:center;
+}
+
+.page-title{
+    text-align:center;
+    font-family:var(--font-display);
+    font-size:1.8rem;
+    font-weight:800;
+    margin:30px 0 40px;
+    color:var(--color-ink);
+}
+
+/* ============================
+   BACK BUTTON
+============================ */
+.back-button{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    width:fit-content;
+    margin:0 auto 36px;
+    padding:10px 22px;
+    background:#fff;
+    color:var(--color-ink);
+    text-decoration:none;
+    font-weight:600;
+    border-radius:999px;
+    box-shadow:var(--shadow-s);
+    transition:.2s ease;
+}
+
+.back-button:hover{
+    transform:translateY(-2px);
+    box-shadow:var(--shadow-m);
+}
+
+/* ============================
+   BADGE GRID (SKK/TKK)
+============================ */
+.badge-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:24px;
+    max-width:620px;
+    margin:34px auto 10px;
+}
+
+.badge-card{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+    width:160px;
+    text-decoration:none;
+    color:var(--color-ink);
+    transition:.2s ease;
+}
+
+.badge-card:hover{ transform:translateY(-4px); }
+
+.badge-card-icon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    aspect-ratio:1/1;
+    background:#ffd667;
+    border-radius:var(--radius-s);
+    box-shadow:var(--shadow-s);
+    overflow:hidden;
+}
+
+.badge-card-icon img{
+    width:65%;
+    height:65%;
+    object-fit:contain;
+}
+
+.badge-card p{
+    font-weight:700;
+    font-size:.85rem;
+    letter-spacing:.3px;
+    text-transform:uppercase;
+    text-align:center;
+}
+
+/* ============================
+   BIDANG BUTTONS
+============================ */
+.bidang-list{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    max-width:620px;
+    margin:0 auto 10px;
+}
+
+.bidang-button{
+    display:block;
+    padding:16px 22px;
+    text-decoration:none;
+    text-align:center;
+    line-height:1.5;
+    border-radius:var(--radius-s);
+    box-shadow:var(--shadow-s);
+    transition:.2s ease;
+}
+
+.bidang-button:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--shadow-m);
+}
+
+.bidang-button-label{
+    display:block;
+    margin-bottom:4px;
+    font-size:.78rem;
+    font-weight:600;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    opacity:.75;
+}
+
+.bidang-button-name{
+    display:block;
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:1rem;
+}
+
+.bidang-button--agama       { background:#f9c116; color:#28210a; }
+.bidang-button--patriotisme { background:#e2231a; color:#fff; }
+.bidang-button--ketangkasan { background:#ffffff; color:var(--color-ink); border:2px solid #e2e6ea; }
+.bidang-button--keterampilan{ background:#2e9e44; color:#fff; }
+.bidang-button--sosial      { background:#1976d2; color:#fff; }
+
+/* ============================
+   FOOTER
+============================ */
 .footer-line{
     width:320px;
     height:2px;
-
     background:#333;
-
     margin:20px auto 0;
 }
 
-/* Responsv9e */
-@media screen and (max-width:600px){
+/* ============================
+   RESPONSIVE
+============================ */
+@media(max-width:768px){
+    .navbar{ padding:0 20px; }
+    .logo-text{ font-size:1.15rem; }
+    .navbar .home-link{ width:46px; height:46px; }
+    .navbar img{ width:26px; height:26px; }
+    .info-grid{ grid-template-columns:1fr; }
+    .bio-title{ font-size:2rem; }
+    .card-header{ font-size:1.25rem; }
+    .skk-container{ grid-template-columns:repeat(3,1fr); }
+}
 
-    .title h1{
-        font-size:30px;
-    }
+@media(max-width:600px){
+    .title h1{ font-size:30px; }
+    .btn{ font-size:13px; }
+    .prev{ left:6px; }
+    .next{ right:6px; }
+}
 
-    .btn{
-        font-size:13px;
-    }
-
+@media(max-width:500px){
+    .sku-container{ grid-template-columns:1fr; }
+    .skk-container{ grid-template-columns:repeat(2,1fr); }
 }
