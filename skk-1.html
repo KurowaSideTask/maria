@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bidang - Pencapaian Pramuka Garuda</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-content">
+
+    <header class="navbar">
+        <div class="logo-text">
+            PENCAPAIAN PRAMUKA GARUDA
+        </div>
+
+        <a href="index.html" class="home-link" aria-label="Kembali ke beranda">
+            <img src="images/home.png" alt="" width="32">
+        </a>
+    </header>
+
+    <div class="bio-container">
+
+        <a href="skk-dan-tkk.html" class="back-button">
+            <span aria-hidden="true">&#8592;</span> Kembali
+        </a>
+
+        <div id="bidangTitle" class="section-banner section-banner--bidang">
+            Memuat...
+        </div>
+
+        <div class="badge-grid" id="badgeGrid"></div>
+
+        <hr>
+
+    </div>
+
+    <!-- bidang-data.js mengisi judul + grid lencana dari bidangData
+         berdasarkan ?id=..., persis seperti skk.html + skrip.js -->
+    <script src="bidang-data.js"></script>
+
+</body>
+</html>
